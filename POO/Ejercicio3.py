@@ -11,6 +11,14 @@ class Calculadora:
         self.__numero1 = numero1
         self.__numero2 = numero2
 
+    @property
+    def numero1(self):
+        return self.__numero1
+
+    @property
+    def numero2(self):
+        return self.__numero2
+
     def calcular_suma(self):
         return self.__numero1 + self.__numero2
 
@@ -54,6 +62,9 @@ while opcion != 5:
         print(f'La resta es: {calculadora.calcular_resta()}')
     elif opcion == 3:
         calculadora = pedir_datos()
+        while calculadora.numero2 == 0:
+            print("No puedes dividir por cero")
+            calculadora = pedir_datos()
         print(f'La division es: {calculadora.calcular_division()}')
     elif opcion == 4:
         calculadora = pedir_datos()
